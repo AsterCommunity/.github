@@ -4,48 +4,30 @@
   Connect the Cosmos. Accelerate Everything.
   <br />
   <a href="https://www.astercosm.com/">astercosm.com</a>
+  &nbsp;·&nbsp;
+  <a href="README.zh.md">中文</a>
 </p>
 
 ## Why AsterCommunity exists
 
-Self-hosted infrastructure has a gap. On one side there are full private-cloud suites that try to do everything and end up heavy, opaque, and hard to modify. On the other side there are single-purpose tools that do one thing well but don't compose into a coherent system.
+Self-hosted infrastructure has a gap. Large suites often become heavy, opaque, and difficult to adapt, while isolated single-purpose tools leave small teams rebuilding the same operational foundations over and over again.
 
-AsterCommunity builds the middle layer: a set of focused, self-hosted services that share one Rust runtime foundation ([AsterForge](https://github.com/AsterCommunity/AsterForge)) and one set of operational conventions. Each service does one job, is meant to be read and modified, and deploys without an enterprise stack. Because they share the same kernel — configuration, storage, observability, background tasks, audit logging — operating three Aster services feels like operating one, not three.
+AsterCommunity exists to build the middle layer: focused systems that are useful on their own, coherent when operated together, and understandable by the people who depend on them. Our goal is not merely to publish source code, but to keep the path from code to deployment, observation, recovery, and long-term maintenance visible.
 
-Everything here is MIT-licensed. Everything is built to be deployed, audited, and hacked on by small teams.
+## Why we build separate systems
 
-## Projects
+Different products have different users, release cycles, failure modes, and ownership boundaries. Keeping them separate preserves independent deployment and modification. Shared infrastructure belongs in reusable foundations only when the underlying mechanics are genuinely common.
 
-### Active
+This gives us a simple rule:
 
-| Project | What it is |
-|---|---|
-| [AsterDrive](https://github.com/AsterCommunity/AsterDrive) | Self-hosted file infrastructure for small teams: reliable uploads, storage policies, S3 / remote-node backends, WebDAV / WOPI, and ops tooling. The flagship service. |
-| [AsterForge](https://github.com/AsterCommunity/AsterForge) | Shared Rust runtime foundation and infrastructure kernel for all Aster services — configuration, storage, WebDAV/XML machinery, observability, scheduled tasks. |
-| [AsterYggdrasil](https://github.com/AsterCommunity/AsterYggdrasil) | Self-hosted Minecraft skin site and Yggdrasil / authlib-injector authentication server. |
+> Shared, but not coupled. Independent, but not isolated.
 
-### Early stage
+## How we work
 
-| Project | What it is |
-|---|---|
-| [AsterPulse](https://github.com/AsterCommunity/AsterPulse) | Distributed uptime monitoring system. |
+- **Built to run.** Deployment, configuration, observability, recovery, and upgrades are part of the product.
+- **Readable and adaptable.** Small teams should be able to inspect, audit, and change the systems they operate.
+- **Explicit boundaries.** Product semantics stay with the product; reusable mechanics stay in shared foundations.
+- **Maintenance is a feature.** Documentation serves both the first installation and the person returning months later to repair or extend a system.
+- **Claims follow evidence.** Roadmaps describe intent; only implemented and verified behavior is presented as current capability.
 
-### Planned
-
-| Project | What it is |
-|---|---|
-| [AsterMail](https://github.com/AsterCommunity/AsterMail) | Sovereign mail system. |
-| [AsterDriveClients](https://github.com/AsterCommunity/AsterDriveClients) | Native desktop / mobile clients for AsterDrive. |
-
-### Supporting
-
-| Project | What it is |
-|---|---|
-| [AsterDriveMigration](https://github.com/AsterCommunity/AsterDriveMigration) | Migration tooling for AsterDrive. |
-| [www.astercosm.com](https://github.com/AsterCommunity/www.astercosm.com) | The AsterCosmos root webpage. |
-
-## Status
-
-AsterDrive is under active development (`v0.4.x` line). AsterForge and AsterYggdrasil are actively maintained, and AsterForge's cloud-files core (`aster_forge_cloud_files`) is in place, giving AsterDrive's clients and future services a unified file abstraction. AsterPulse is in early development; AsterMail and the AsterDrive native clients are on the roadmap.
-
-In the `0.x` series, expect minor versions to carry compatibility and scope changes.
+Learn more at [astercosm.com](https://www.astercosm.com/).

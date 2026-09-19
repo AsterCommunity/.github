@@ -4,50 +4,30 @@
   连接星宇，加速一切。
   <br />
   <a href="https://www.astercosm.com/">astercosm.com</a>
-  <br />
+  &nbsp;·&nbsp;
   <a href="README.md">English</a>
 </p>
 
 ## AsterCommunity 为什么存在
 
-自托管基础设施存在一个断层。一端是什么都想做的私有云全家桶——笨重、不透明、难以修改；另一端是各司其职的单点工具——单个都好使，但拼不成一套协调的系统。
+自托管基础设施之间存在一道断层：大型套件往往沉重、不透明且难以调整；彼此孤立的单点工具，又会让小团队一遍遍重建相同的运维基础。
 
-AsterCommunity 构建的是中间层：一组专注的、可自托管的服务，共享同一个 Rust 运行时底座（[AsterForge](https://github.com/AsterCommunity/AsterForge)）和同一套运维约定。每个服务只做一件事，代码为人可读、可改，部署不需要企业级技术栈。因为它们共享同一个内核——配置、存储、可观测性、后台任务、审计日志——运维三个 Aster 服务的体验像运维一个，而不是三个。
+AsterCommunity 希望构建中间这一层：每套系统都能独立发挥作用，组合运行时保持一致，也始终能被依赖它的人理解。我们的目标不只是公开代码，而是让代码通往部署、观测、恢复和长期维护的路径始终可见。
 
-这里的一切都是 MIT 许可。一切都是为小团队能部署、能审计、能魔改而构建的。
+## 为什么拆成不同系统
 
-## 项目一览
+不同产品面对不同用户，也有不同的发布节奏、故障模式与责任边界。保持独立，才能各自部署和修改；只有底层机制确实共同时，才将它沉淀为共享基础。
 
-### 活跃开发
+我们的原则很简单：
 
-| 项目 | 简介 |
-|---|---|
-| [AsterDrive](https://github.com/AsterCommunity/AsterDrive) | 面向小团队的自托管文件基础设施：可靠上传、存储策略、S3 / 远程节点后端、WebDAV / WOPI、运维工具链。旗舰服务。 |
-| [AsterForge](https://github.com/AsterCommunity/AsterForge) | 所有 Aster 服务共享的 Rust 运行时底座与基础设施内核——配置、存储、WebDAV/XML 设施、可观测性、定时任务。 |
-| [AsterYggdrasil](https://github.com/AsterCommunity/AsterYggdrasil) | 自托管 Minecraft 皮肤站与 Yggdrasil / authlib-injector 认证服务器。 |
+> 共享，但不捆绑；独立，但不孤立。
 
-### 早期阶段
+## 我们如何工作
 
-| 项目 | 简介 |
-|---|---|
-| [AsterPulse](https://github.com/AsterCommunity/AsterPulse) | 分布式可用性监控系统。 |
+- **为运行而构建。** 部署、配置、观测、恢复和升级都是产品的一部分。
+- **保持可读、可改。** 小团队应当能够检查、审计并修改自己运行的系统。
+- **明确责任边界。** 产品语义留在产品中，可复用的机制归入共享底座。
+- **把维护当成功能。** 文档既服务第一次安装，也服务几个月后回来修复和扩展系统的人。
+- **让主张服从证据。** 路线图描述意图，只有已经实现并验证的行为才算当前能力。
 
-### 规划中
-
-| 项目 | 简介 |
-|---|---|
-| [AsterMail](https://github.com/AsterCommunity/AsterMail) | 主权邮件系统。 |
-| [AsterDriveClients](https://github.com/AsterCommunity/AsterDriveClients) | AsterDrive 桌面 / 移动原生客户端。 |
-
-### 支撑项目
-
-| 项目 | 简介 |
-|---|---|
-| [AsterDriveMigration](https://github.com/AsterCommunity/AsterDriveMigration) | AsterDrive 迁移工具。 |
-| [www.astercosm.com](https://github.com/AsterCommunity/www.astercosm.com) | AsterCosmos 主站。 |
-
-## 当前状态
-
-AsterDrive 处于活跃开发中（`v0.4.x` 线）。AsterForge 与 AsterYggdrasil 持续维护中；AsterForge 的云文件核心（`aster_forge_cloud_files`）地基已经就绪，为 AsterDrive 各端与后续服务提供统一的文件抽象。AsterPulse 处于早期开发；AsterMail 与 AsterDrive 原生客户端在路线图上。
-
-在 `0.x` 系列中，次版本号可能携带兼容性与范围变更。
+更多信息请访问 [astercosm.com](https://www.astercosm.com/zh/)。
